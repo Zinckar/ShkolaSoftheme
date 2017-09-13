@@ -8,7 +8,7 @@ namespace HelloWorld
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Hello, world!");
+            Console.WriteLine("Hello, World!");
             Console.ReadKey();
         }
     }
