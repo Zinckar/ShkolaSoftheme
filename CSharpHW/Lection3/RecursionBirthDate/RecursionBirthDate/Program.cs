@@ -17,19 +17,20 @@ namespace RecursionBirthDate
         private const string Libra = "Libra";
         private const string Scorpio = "Scorpio";
         private const string Sagittarius = "Sagittarius";
-        private const string Format = "DD/MM/YYYY";
+        private const string Format = "dd/MM/yyyy";
 
         static void Main(string[] args)
         {
             var dateOfBirth = CheckBirthDate();
-            Output(FindOutZodiacSign(dateOfBirth));
+            var age = DateTime.Now.Year - dateOfBirth.Year;
+            Output(FindOutZodiacSign(dateOfBirth), age);
             Console.ReadKey();
         }
 
         private static DateTime CheckBirthDate()
         {
             DateTime dt;
-            Console.WriteLine("Enter your date birth in " + Format + " format: ");
+            Console.WriteLine("Enter your date of birth in " + Format + " format: ");
             string birthDate = Console.ReadLine();
 
             if (DateTime.TryParseExact(birthDate, Format, CultureInfo.InvariantCulture, DateTimeStyles.None, out dt))
@@ -98,9 +99,10 @@ namespace RecursionBirthDate
             return "";
         }
 
-        private static void Output(string zodiac)
+        private static void Output(string zodiac, int age)
         {
-            Console.WriteLine("Your zodiac sign is {0}", zodiac);
+            Console.WriteLine("Your zodiac sign is "+ zodiac);
+            Console.WriteLine("Your age is "+ age);
         }
     }
 }

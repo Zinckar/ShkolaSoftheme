@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    class Program
+    class Calculator
 
     {
         static void Main(string[] args)
@@ -18,20 +18,16 @@ namespace Calculator
             double num1;
             double num2;
             double result;
-            string[] operations = {"+", "-", "*", "/", "%"};
+            string[] operations = { "+", "-", "*", "/", "%" };
 
 
             while (true)
             {
-                num1 = SetNumber( "Please enter the first number: ");
+                num1 = SetNumber("Please enter the first number: ");
                 string operand = SetOperation(operations, "Please enter an operation (+, -, /, *, %): ");
                 num2 = SetNumber("Please enter the second number: ");
 
-                while (num2 == 0 && (operand == "/" || operand == "%"))
-                {
-                    Console.WriteLine("Division by zero. Choose another number");
-                    num2 = SetNumber("Please enter the second number: ");
-                }
+
 
                 switch (operand)
                 {
@@ -55,14 +51,12 @@ namespace Calculator
                         break;
                 }
 
-
-                Console.WriteLine(num1 + " " + operand + " " + num2 + " = " + Math.Round(result, 2));
-
+                Console.WriteLine("{0} {1} {2} = {3}", num1, operand, num2, result.ToString(CultureInfo.InvariantCulture));
                 Console.WriteLine("Try more? [y/n]");
-            
+
                 if (Console.ReadKey().Key == ConsoleKey.N)
                 {
-                    Environment.Exit(0);
+                    return;
                 }
                 else
                 {
@@ -76,11 +70,14 @@ namespace Calculator
         {
             Console.Write(output);
             string input = Console.ReadLine();
-            while (string.IsNullOrEmpty(input))
+            double parsed;
+            while (!double.TryParse(input, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out parsed)
+                || double.IsNaN((parsed)) || double.IsInfinity(parsed))
             {
-                Console.WriteLine("Enter valid number;");
+                Console.WriteLine("Enter valid number:");
+                input = Console.ReadLine();
             }
-            return double.Parse(input, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture);
+            return parsed;
         }
 
 
