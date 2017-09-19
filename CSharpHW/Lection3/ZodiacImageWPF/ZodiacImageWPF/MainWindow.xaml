@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZodiacImageWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+       Title="CheckBirthDate" Height="181" Width="525">
     <Grid>
-        
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="82,58,0,0" TextWrapping="Wrap" Text="" Name="BirthDate"  VerticalAlignment="Top" Width="342"/>
+        <TextBlock HorizontalAlignment="Left" Margin="82,21,0,0" TextWrapping="Wrap" Text="Enter your date birth in dd/MM/yyyy format: " VerticalAlignment="Top" Width="342" Height="20"/>
+        <Button Content="CheckBirthDate" HorizontalAlignment="Left" Margin="207,120,0,0" VerticalAlignment="Top" Width="104" Click="CheckBirthDate" RenderTransformOrigin="0.481,1.1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="212,90,0,0" TextWrapping="Wrap" Name="Error" VerticalAlignment="Top" Height="20" Width="97"/>
+
     </Grid>
 </Window>

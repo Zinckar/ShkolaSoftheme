@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0666DB83-831E-4D9B-AC35-1D5E56F63E0F}</ProjectGuid>
+    <ProjectGuid>{EA6C9D4F-93A0-4D99-BC5F-16F1F2781513}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ZodiacImageWPF</RootNamespace>
-    <AssemblyName>ZodiacImageWPF</AssemblyName>
+    <RootNamespace>NumberGuess</RootNamespace>
+    <AssemblyName>NumberGuess</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,9 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ZodiacWindow.xaml.cs">
-      <DependentUpon>ZodiacWindow.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -70,10 +67,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ZodiacWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -101,21 +94,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Resource Include="images\aquarius.jpg" />
-    <Resource Include="images\aries.jpg" />
-    <Resource Include="images\cancer.jpg" />
-    <Resource Include="images\capricorn.jpg" />
-    <Resource Include="images\gemini.jpg" />
-    <Resource Include="images\leo.jpg" />
-    <Resource Include="images\libra.jpg" />
-    <Resource Include="images\pisces.jpg" />
-    <Resource Include="images\sagittarius.jpg" />
-    <Resource Include="images\scorpio.jpg" />
-    <Resource Include="images\taurus.jpg" />
-    <Resource Include="images\virgo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

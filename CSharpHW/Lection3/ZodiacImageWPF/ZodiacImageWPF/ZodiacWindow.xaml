@@ -1,0 +1,11 @@
+﻿<Window x:Class="ZodiacImageWPF.ZodiacWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ZodiacWindow" Height="700" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="202,32,0,0" TextWrapping="Wrap" Text="Your birth date is " VerticalAlignment="Top" Height="19" Width="92"/>
+        <TextBlock HorizontalAlignment="Left" Margin="294,32,0,0" TextWrapping="Wrap" Name="BirthDate" VerticalAlignment="Top" Height="19" Width="57"/>
+        <Image HorizontalAlignment="Left" Height="454" Margin="26,59,0,0" Name="Zodiac" VerticalAlignment="Top" Width="640"/>
+
+    </Grid>
+</Window>

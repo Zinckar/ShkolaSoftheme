@@ -1,28 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ZodiacImageWPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+   
+
     public partial class MainWindow : Window
     {
+        private const string FORMAT = "dd/MM/yyyy";
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void CheckBirthDate(object sender, RoutedEventArgs e)
+        {
+            DateTime dt;
+
+            if (DateTime.TryParseExact(BirthDate.Text, FORMAT, CultureInfo.InvariantCulture, DateTimeStyles.None,
+                out dt))
+            {
+                ZodiacWindow zodiacWindow = new ZodiacWindow(dt);
+                zodiacWindow.Show();
+                Close();
+            }
+            else
+            {
+                var win2 = new MainWindow();
+                win2.Show();
+                Close();
+            }
+
+
         }
     }
 }
