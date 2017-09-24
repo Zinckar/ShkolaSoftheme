@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25029.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Printers", "Printers\Printers.csproj", "{C7D1FFDA-262D-4F7F-9435-208CE17BA151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintersExtension", "PrintersExtension\PrintersExtension.csproj", "{FEDE376F-E421-4931-81B7-A5E983B54C5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7D1FFDA-262D-4F7F-9435-208CE17BA151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7D1FFDA-262D-4F7F-9435-208CE17BA151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7D1FFDA-262D-4F7F-9435-208CE17BA151}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7D1FFDA-262D-4F7F-9435-208CE17BA151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEDE376F-E421-4931-81B7-A5E983B54C5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEDE376F-E421-4931-81B7-A5E983B54C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEDE376F-E421-4931-81B7-A5E983B54C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEDE376F-E421-4931-81B7-A5E983B54C5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
