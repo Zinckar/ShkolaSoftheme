@@ -5,7 +5,7 @@ namespace MemoryManagment
 {
     class ResourceHolderDerived : ResourceHolderBase, IDisposable
     {
-        private const string FilePath = "file.txt";
+        private const string FilePath = "../../file.txt";
         private const string RemovedInClass = "Resource was removed in ResourceHolderDerived.Dispose";
         private const string RemovedInFinilizer = "Resource was removed in ResourceHolderDerived finalizer";
 
