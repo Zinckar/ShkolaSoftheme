@@ -4,10 +4,12 @@ namespace MemoryManagment
 {
     class Program
     {
-
+        private const string ShowDisposeInConstruction = "Show dispose method in using construction";
+        private const string ShowExplicit = "Show explicit invokation of dispose method";
+        private const string ShowFinalize = "Show invokation of finalize method";
         static void Main(string[] args)
         {
-            Console.WriteLine("Show dispose method in using construction");
+            Console.WriteLine(ShowDisposeInConstruction);
 
             using (ResourceHolderBase rhb = new ResourceHolderBase())
             {
@@ -19,7 +21,7 @@ namespace MemoryManagment
             }
 
             Console.WriteLine();
-            Console.WriteLine("Show excplicit invokation of dispose method");
+            Console.WriteLine(ShowExplicit);
             ResourceHolderBase rhb1 = new ResourceHolderBase();
             rhb1.Read();
             rhb1.Dispose();
@@ -28,7 +30,7 @@ namespace MemoryManagment
             rhd1.Dispose();
 
             Console.WriteLine();
-            Console.WriteLine("Show invokation of finalize method");
+            Console.WriteLine(ShowFinalize);
             ResourceHolderBase rhb2 = new ResourceHolderBase();
             rhb2.Read();
             ResourceHolderDerived rhd2 = new ResourceHolderDerived();

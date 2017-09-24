@@ -5,11 +5,15 @@ namespace MemoryManagment
 {
     class ResourceHolderDerived : ResourceHolderBase, IDisposable
     {
+        private const string FilePath = "file.txt";
+        private const string RemovedInClass = "Resource was removed in ResourceHolderDerived.Dispose";
+        private const string RemovedInFinilizer = "Resource was removed in ResourceHolderDerived finalizer";
+
         private readonly StreamReader _resource;
 
         public ResourceHolderDerived()
         {
-            _resource = new StreamReader(@"file.txt");
+            _resource = new StreamReader(FilePath);
         }
 
 
@@ -22,14 +26,14 @@ namespace MemoryManagment
         void IDisposable.Dispose()
         {
 
-            Console.WriteLine("Resource was removed in ResourceHolderDerived.Dispose");
+            Console.WriteLine(RemovedInClass);
             GC.SuppressFinalize(this);
         }
 
         ~ResourceHolderDerived()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Resource was removed in ResourceHolderDerived finalizer");
+            Console.WriteLine(RemovedInFinilizer);
         }
     }
 }
