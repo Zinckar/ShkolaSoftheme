@@ -4,17 +4,17 @@
     {
         public static void ProcessAllActions()
         {
-            Operator mobileOperator = new Operator();
+            var mobileOperator = new Operator();
 
-            User user1 = new User("11111", "John");
-            User user2 = new User("22222", "Smith");
-            User user3 = new User("33333", "Pablo");
-            User user4 = new User("44444", "Jenny");
+            var user1 = new User("11111", "John");
+            var user2 = new User("22222", "Smith");
+            var user3 = new User("33333", "Pablo");
+            var user4 = new User("44444", "Jenny");
 
-            MobileAccount account1 = new MobileAccount(user1, mobileOperator);
-            MobileAccount account2 = new MobileAccount(user2, mobileOperator);
-            MobileAccount account3 = new MobileAccount(user3, mobileOperator);
-            MobileAccount account4 = new MobileAccount(user4, mobileOperator);
+            var account1 = new MobileAccount(user1, mobileOperator);
+            var account2 = new MobileAccount(user2, mobileOperator);
+            var account3 = new MobileAccount(user3, mobileOperator);
+            var account4 = new MobileAccount(user4, mobileOperator);
 
             mobileOperator.Register(account1);
             mobileOperator.Register(account2);
