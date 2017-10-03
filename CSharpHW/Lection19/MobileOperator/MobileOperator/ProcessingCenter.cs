@@ -4,23 +4,26 @@ namespace MobileOperator
 {
     public static class ProcessingCenter
     {
+        private const string TestMessage = "Hi, how are you?";
+        private const string TopNumbers = "Five most common numbers";
+        private const string TopAccounts = "Five most active accounts";
         public static void ProcessAllActions()
         {
             Operator mobileOperator = new Operator();
 
-            User user1 = new User("111111", "John");
-            User user2 = new User("222222", "Smith");
-            User user3 = new User("333333", "Pablo");
-            User user4 = new User("444444", "Jenny");
-            User user5 = new User("555555", "Billy");
-            User user6 = new User("666666", "Michael");
+            var user1 = new User("111111", "John");
+            var user2 = new User("222222", "Smith");
+            var user3 = new User("333333", "Pablo");
+            var user4 = new User("444444", "Jenny");
+            var user5 = new User("555555", "Billy");
+            var user6 = new User("666666", "Michael");
 
-            MobileAccount account1 = new MobileAccount(user1, mobileOperator);
-            MobileAccount account2 = new MobileAccount(user2, mobileOperator);
-            MobileAccount account3 = new MobileAccount(user3, mobileOperator);
-            MobileAccount account4 = new MobileAccount(user4, mobileOperator);
-            MobileAccount account5 = new MobileAccount(user5, mobileOperator);
-            MobileAccount account6 = new MobileAccount(user6, mobileOperator);
+            var account1 = new MobileAccount(user1, mobileOperator);
+            var account2 = new MobileAccount(user2, mobileOperator);
+            var account3 = new MobileAccount(user3, mobileOperator);
+            var account4 = new MobileAccount(user4, mobileOperator);
+            var account5 = new MobileAccount(user5, mobileOperator);
+            var account6 = new MobileAccount(user6, mobileOperator);
 
             mobileOperator.Register(account1);
             mobileOperator.Register(account2);
@@ -71,27 +74,15 @@ namespace MobileOperator
             account5.MakeCall(account4.Number);
             account5.MakeCall(account1.Number);
 
-            account4.SendSms(account2.Number, "Hi, how are you?");
-            account4.SendSms(account1.Number, "Hi, how are you?");
-            account2.SendSms(account4.Number, "Hi, how are you?");
-            account3.SendSms(account6.Number, "Hi, how are you?");
-            account4.SendSms(account2.Number, "Hi, how are you?");
-            account1.SendSms(account4.Number, "Hi, how are you?");
-            account4.SendSms(account6.Number, "Hi, how are you?");
-            account2.SendSms(account1.Number, "Hi, how are you?");
-            account3.SendSms(account1.Number, "Hi, how are you?");
-            account5.SendSms(account6.Number, "Hi, how are you?");
-            account5.SendSms(account1.Number, "Hi, how are you?");
-            account5.SendSms(account1.Number, "Hi, how are you?");
-            account2.SendSms(account3.Number, "Hi, how are you?");
-            account3.SendSms(account1.Number, "Hi, how are you?");
-            account4.SendSms(account2.Number, "Hi, how are you?");
-            account5.SendSms(account3.Number, "Hi, how are you?");
-            account5.SendSms(account1.Number, "Hi, how are you?");
-            account6.SendSms(account4.Number, "Hi, how are you?");
-            account5.SendSms(account1.Number, "Hi, how are you?");
+            account4.SendSms(account2.Number, TestMessage);
+            account4.SendSms(account1.Number, TestMessage);
+            account2.SendSms(account4.Number, TestMessage);
+            account3.SendSms(account6.Number, TestMessage);
+            account4.SendSms(account2.Number, TestMessage);
+            account1.SendSms(account4.Number, TestMessage);
 
-            Console.WriteLine("Five most common numbers");
+
+            Console.WriteLine(TopNumbers);
             var commonNumbers = mobileOperator.GetFiveMostCommonNumbers();
             foreach (var number in commonNumbers)
             {
@@ -99,7 +90,7 @@ namespace MobileOperator
             }
 
             Console.WriteLine();
-            Console.WriteLine("Five most active account numbers");
+            Console.WriteLine(TopAccounts);
             var activeNumbers = mobileOperator.GetFiveMostActiveNumbers();
 
             foreach (var num in activeNumbers)

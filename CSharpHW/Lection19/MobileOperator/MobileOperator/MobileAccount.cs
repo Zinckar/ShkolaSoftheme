@@ -6,11 +6,8 @@ namespace MobileOperator
     public class MobileAccount : IMobileAccount
     {
         public string Number { get; private set; }
-
         public string Name { get; private set; }
-
         private Operator Operator { get; set; }
-
         private List<User> AddressBook { get; set; }
 
         public MobileAccount(User user, Operator mobileOperator)
@@ -31,7 +28,6 @@ namespace MobileOperator
                     Operator.ProcessCall(Number, toNumber);
                     return;
                 }
-
             }
             Console.WriteLine("{0} is calling to number {1}", Name, toNumber);
 
@@ -48,7 +44,6 @@ namespace MobileOperator
                     Operator.ProcessSms(Number, toNumber, text);
                     return;
                 }
-
             }
             Console.WriteLine("{0} is sending sms to number {1}", Name, toNumber);
             Operator.ProcessSms(Number, toNumber, text);

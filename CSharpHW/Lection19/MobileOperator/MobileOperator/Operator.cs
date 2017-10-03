@@ -6,13 +6,17 @@ namespace MobileOperator
 {
     public class Operator : IOperator
     {
+        private const string ErrMsgSenderNotRegistered = "Sender number is not registered!";
+        private const string ErrMsgReceiverNotRegistered = "Receiver number is not registered!";
+        private const string ErrMsgEqualNumbers = "Sender and Receiver numbers should be different";
+        private const string ErrMsgUserDublicate = "User with same number already exist!";
         public delegate void Sms(object sender, SmsEventArgs e);
         public delegate void Call(object sender, CallEventArgs e);
 
-        public event Sms SendSMS;
+        public event Sms SendSms;
         public event Call MakeCall;
 
-        private List<MobileAccount> RegisteredUsers { get; set; }
+        private List<MobileAccount> RegisteredUsers { get; }
         private readonly List<Activity> _activityHistory = new List<Activity>();
 
         public Operator()
@@ -24,15 +28,15 @@ namespace MobileOperator
         {
             if (RegisteredUsers.Find(x => x.Number == fromNumber).Number == null)
             {
-                throw new ArgumentException("Sender number is not registered!");
+                throw new ArgumentException(ErrMsgSenderNotRegistered);
             }
             if (RegisteredUsers.Find(x => x.Number == toNumber).Number == null)
             {
-                throw new ArgumentException("Receiver number is not registered!");
+                throw new ArgumentException(ErrMsgReceiverNotRegistered);
             }
             if (fromNumber == toNumber)
             {
-                throw new ArgumentException("Sender and Receiver numbers should be different");
+                throw new ArgumentException(ErrMsgEqualNumbers);
             }
 
             foreach (var user in RegisteredUsers)
@@ -57,29 +61,29 @@ namespace MobileOperator
 
             if (RegisteredUsers.Find(x => x.Number == fromNumber).Number == null)
             {
-                throw new ArgumentException("Sender number is not registered!");
+                throw new ArgumentException(ErrMsgSenderNotRegistered);
             }
             if (RegisteredUsers.Find(x => x.Number == toNumber).Number == null)
             {
-                throw new ArgumentException("Receiver number is not registered!");
+                throw new ArgumentException(ErrMsgReceiverNotRegistered);
             }
             if (fromNumber == toNumber)
             {
-                throw new ArgumentException("Sender and Receiver numbers should be different");
+                throw new ArgumentException(ErrMsgEqualNumbers);
             }
 
             foreach (var user in RegisteredUsers)
             {
                 if (user.Number == toNumber)
                 {
-                    SendSMS += user.ReceiveSms;
-                    if (SendSMS != null)
+                    SendSms += user.ReceiveSms;
+                    if (SendSms != null)
                     {
-                        _activityHistory.Add(new Activity(fromNumber, toNumber, ActivityType.SMS));
+                        _activityHistory.Add(new Activity(fromNumber, toNumber, ActivityType.Sms));
                         Console.WriteLine("Processing SMS from {0} to {1}", fromNumber, toNumber);
-                        SendSMS(this, new SmsEventArgs(fromNumber, text));
+                        SendSms(this, new SmsEventArgs(fromNumber, text));
                     }
-                    SendSMS -= user.ReceiveSms;
+                    SendSms -= user.ReceiveSms;
                     return;
                 }
             }
@@ -89,7 +93,7 @@ namespace MobileOperator
         {
             if (RegisteredUsers.Exists(x => x.Number == account.Number))
             {
-                throw new ArgumentException("User with same number already exist!");
+                throw new ArgumentException(ErrMsgUserDublicate);
             }
             RegisteredUsers.Add(account);
         }
@@ -110,8 +114,7 @@ namespace MobileOperator
             {
                 num.Key,
                 CountCall =
-                num.Count(act => act.Type == ActivityType.Call) + num.Count(act => act.Type == ActivityType.SMS) / 2
-
+                num.Count(act => act.Type == ActivityType.Call) + num.Count(act => act.Type == ActivityType.Sms) / 2
             }).OrderByDescending(act => act.CountCall).ToList();
 
             return a.Select(x => x.Key).Take(5).ToList();

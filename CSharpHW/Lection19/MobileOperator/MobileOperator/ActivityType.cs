@@ -2,6 +2,6 @@
 {
     public enum ActivityType
     {
-        Call, SMS
+        Call, Sms
     }
 }
